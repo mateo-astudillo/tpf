@@ -1,39 +1,15 @@
 <?php
-include "views/template.php";
 include "model/connection.php";
+include "model/actors.php";
+include "model/movies.php";
 $r = explode("/", $_SERVER["REQUEST_URI"]);
-array_shift($r);
-switch (array_shift($r)) {
-    case "":
-    case "home":
-        include "views/home.php";
-        break;
-    case "actors":
-        switch (array_shift($r)) {
-            case "insert":
-                include "views/insert_actors.php";
-                break;
-            default:
-                include "views/actors.php";
-                break;
-        }
-        break;
-    case "movies":
-        switch (array_shift($r)) {
-            case "insert":
-                include "views/insert_movies.php";
-                break;
-            default:
-                include "views/movies.php";
-                break;
-        }
+array_shift($r); // the first element is empty
+switch ($page = array_shift($r)) {
+    case "api":
+        include "controller/api.php";
         break;
     default:
-        include "views/404.php";
-        break;
+        include "views/top.php";
+        include "controller/frontend.php";
+        include "views/down.php";
 }
-?>
-    </main>
-</body>
-
-</html>
