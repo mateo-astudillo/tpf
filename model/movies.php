@@ -28,9 +28,9 @@ function multiple_movies_insert(array $movies) {
     $q = "INSERT INTO movies (name, release_year, genre) VALUES(:n, :ry, :g);";
     $stmt = $pdo->prepare($q);
     foreach ($movies as $m) {
-        $stmt->bindParam("n", $m["name"], PDO::PARAM_STR, 255);
-        $stmt->bindParam("ry", $m["release_year"], PDO::PARAM_INT);
-        $stmt->bindParam("g", $m["genre"], PDO::PARAM_STR, 64);
+        $stmt->bindParam(":n", $m["name"], PDO::PARAM_STR, 255);
+        $stmt->bindParam(":ry", $m["release_year"], PDO::PARAM_INT);
+        $stmt->bindParam(":g", $m["genre"], PDO::PARAM_STR, 64);
         $stmt->execute();
     }
 }
