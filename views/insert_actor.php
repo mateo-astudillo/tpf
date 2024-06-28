@@ -1,5 +1,5 @@
 <form action="/api/actors" method="POST" class="flex flex-col items-center bg-slate-200 border-2 border-slate-800 rounded">
-    <div class="flex flex-row">
+    <div class="flex">
         <div class="flex flex-col gap-y-8 p-10">
             <label for="first_name" class="px-10 hover:text-gray-700">Nombre</label>
             <label for="last_name" class="px-10">Apellido</label>

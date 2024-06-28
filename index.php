@@ -2,6 +2,7 @@
 include "model/connection.php";
 include "model/actors.php";
 include "model/movies.php";
+include "model/reset.php";
 $r = explode("/", $_SERVER["REQUEST_URI"]);
 array_shift($r); // the first element is empty
 switch ($page = array_shift($r)) {

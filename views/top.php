@@ -10,4 +10,4 @@
     <?php
     include "nav.php";
     ?>
-    <main class="flex justify-center p-2">
+    <main class="container mx-auto p-2">

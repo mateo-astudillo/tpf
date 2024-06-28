@@ -4,20 +4,30 @@ switch($page) {
     case "home":
         include "views/home.php";
         break;
+    case "files":
+        include "views/files.php";
+        break;
     case "actors":
-        switch (array_shift($r)) {
+        switch ($p = array_shift($r)) {
+            case "":
+                include "views/actors.php";
+                break;
             case "insert":
-                include "views/insert_actors.php";
+                include "views/insert_actor.php";
+                break;
+            case "edit":
+                $id = array_shift($r);
+                include "views/edit_actor.php";
                 break;
             default:
-                include "views/actors.php";
+                echo $p;
                 break;
         }
         break;
     case "movies":
         switch (array_shift($r)) {
             case "insert":
-                include "views/insert_movies.php";
+                include "views/insert_movie.php";
                 break;
             default:
                 include "views/movies.php";

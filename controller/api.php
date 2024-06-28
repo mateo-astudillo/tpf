@@ -1,6 +1,8 @@
 <?php
 switch (array_shift($r)) {
-    case "actors?":
+    case "reset":
+        reset_db();
+        break;
     case "actors":
         switch ($_SERVER['REQUEST_METHOD']) {
             case "GET":

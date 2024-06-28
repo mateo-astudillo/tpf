@@ -1,10 +1,10 @@
 async function show_actors() {
-  const actors = await fetch("/api/actors", "GET");
+  const data = await fetch("/api/actors", "GET");
   const tb = document.getElementById("table_body");
-  console.log(actors);
-  // const tr = document.createElement("tr");
-
-  // const tr = document.createElement("tr");
-  
-  
+  const actors = JSON.parse(data.body());
+  actors.foreach((e) => {
+    console.log(e.first_name);
+    console.log(e.last_name);
+    console.log(e.birthdate);
+  })
 }
