@@ -1,4 +1,4 @@
-<form action="/api/actors" method="POST" class="flex flex-col items-center bg-slate-200 border-2 border-slate-800 rounded">
+<form action="/api/actors" method="POST" class="flex flex-col">
     <div class="flex">
         <div class="flex flex-col gap-y-8 p-10">
             <label for="first_name" class="px-10 hover:text-gray-700">Nombre</label>
@@ -11,7 +11,7 @@
             <input id="birthdate" name="birthdate" type="date" required class="rounded">
         </div>
     </div>
-    <div class="flex-item m-2">
+    <div class="flex-item m-2 self-center">
         <button type="submit" class="inline-flex px-5 py-2 bg-emerald-400 rounded hover:bg-emerald-300">Insertar</button>
     </div>
 </form>

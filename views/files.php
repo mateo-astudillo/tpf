@@ -1,5 +1,5 @@
 <div class="flex gap-4">
-    <form action="#" method="" class="flex flex-col items-center bg-slate-200 border-2 border-slate-800 rounded">
+    <form action="/api/files" method="POST" enctype="multipart/form-data" class="flex flex-col items-center bg-slate-200 border-2 border-slate-800 rounded">
         <div class="flex">
             <div class="flex flex-col gap-y-8 p-10">
                 <label for="actor_file" class="px-10 hover:text-gray-700">Archivo ".csv" de actores</label>

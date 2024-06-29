@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>TPF</title>
+    <title>Cine</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="views/images/favicon.ico">
 </head>
 
 <body class="bg-slate-100">

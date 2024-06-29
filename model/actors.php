@@ -1,4 +1,7 @@
 <?php
+$pdo;
+$q = "SELECT * FROM actors WHERE id = :id;";
+$get_actor = $pdo->prepare($q);
 
 function age(string $bd): string {
     $bd = new DateTime($bd);
@@ -8,12 +11,10 @@ function age(string $bd): string {
 }
 
 function get_actor($id) {
-    global $pdo;
-    $q = "SELECT * FROM actors WHERE id = :id;";
-    $stmt = $pdo->prepare($q);
-    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-    $stmt->execute();
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+    global $get_actor;
+    $get_actor->bindParam(":id", $id, PDO::PARAM_INT);
+    $get_actor->execute();
+    return $get_actor->fetch(PDO::FETCH_ASSOC);
 }
 
 function get_all_actors(): array {

@@ -7,6 +7,9 @@ switch($page) {
     case "files":
         include "views/files.php";
         break;
+    case "insert":
+        include "views/insert.php";
+        break;
     case "actors":
         switch ($p = array_shift($r)) {
             case "":
@@ -26,11 +29,18 @@ switch($page) {
         break;
     case "movies":
         switch (array_shift($r)) {
+            case "":
+                include "views/movies.php";
+                break;
             case "insert":
                 include "views/insert_movie.php";
                 break;
+            case "edit":
+                $id = array_shift($r);
+                include "views/edit_movie.php";
+                break;
             default:
-                include "views/movies.php";
+                echo $p;
                 break;
         }
         break;

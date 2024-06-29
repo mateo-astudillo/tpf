@@ -3,6 +3,12 @@ switch (array_shift($r)) {
     case "reset":
         reset_db();
         break;
+    case "files":
+        echo "HELLO";
+        if (isset($_POST["actor_file"])) {
+            echo "archivo";
+        }
+        break;
     case "actors":
         switch ($_SERVER['REQUEST_METHOD']) {
             case "GET":
@@ -18,8 +24,13 @@ switch (array_shift($r)) {
                 remove_actor((int)array_shift($r));
                 header('Location: /actors');
                 break;
+            case "PUT":
+                echo "Hello put";
+                break;
+            case "PATCH":
+                echo "Hello patch";
+                break;
             default:
-                echo "API";
                 break;
         }
         break;

@@ -1,5 +1,13 @@
 <?php $actor = get_actor($id); ?>
-
+<script>
+    function update(id) {
+        fetch(`/api/actors/${id}`, {
+            method: "PATCH"
+        }).then(() => {
+            location.replace("/actors")
+        })
+    }
+</script>
 <div class="flex flex-col items-center bg-slate-200 border-2 border-slate-800 rounded">
     <div class="flex flex-row">
         <div class="flex flex-col gap-y-8 p-10">
@@ -14,6 +22,6 @@
         </div>
     </div>
     <div class="flex-item m-2">
-        <button  class="inline-flex px-5 py-2 bg-emerald-400 rounded hover:bg-emerald-300">Actualizar</button>
+        <button onclick=<?php echo "update(" . $actor["id"] . ")"; ?> class="inline-flex px-5 py-2 bg-emerald-400 rounded hover:bg-emerald-300">Actualizar</button>
     </div>
 </div>
