@@ -20,10 +20,10 @@
     </thead>
 
     <tbody>
-        <?php foreach (get_all_actors() as $a) :; ?>
+        <?php foreach (get_all_actors() as $a): ; ?>
             <tr class="border">
                 <td class="py-4 px-6"><?php echo $a["first_name"] . " " . $a["last_name"] ?></td>
-                <td class="py-4 px-6"><?php echo $a["birthdate"] ?></td>
+                <td class="py-4 px-6"><?php echo age($a["birthdate"]) ?></td>
                 <td class="py-4 px-6">
                     <a href=<?php echo "/actors/" . $a["id"] . "/movies" ?>>
                         <?php echo $a["id"] ?>

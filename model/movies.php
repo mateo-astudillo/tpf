@@ -1,4 +1,14 @@
 <?php
+
+function get_movie($id) {
+    global $pdo;
+    $q = "SELECT * FROM movies WHERE id = :id;";
+    $stmt = $pdo->prepare($q);
+    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 function get_all_movies(): array {
     global $pdo;
     $q = "SELECT * FROM movies;";
@@ -20,11 +30,14 @@ function insert_movie() {
     $stmt->execute();
 }
 
-function multiple_movies_insert(array $movies) {
+function delete_movies() {
     global $pdo;
     $q_delete = "DELETE FROM movies;";
     $stmt = $pdo->prepare($q_delete);
     $stmt->execute();
+}
+function insert_movies(array $movies) {
+    global $pdo;
     $q = "INSERT INTO movies (name, release_year, genre) VALUES(:n, :ry, :g);";
     $stmt = $pdo->prepare($q);
     foreach ($movies as $m) {

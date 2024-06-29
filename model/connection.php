@@ -1,9 +1,9 @@
 <?php
-$envs = getenv();
-$user = $envs["PDO_USER"];
-$pass = $envs["PDO_PASS"];
-$host = $envs["PDO_HOST"];
-$db = $envs["PDO_DB"];
+
+$user = getenv("PDO_USER") ?: "root";
+$pass = getenv("PDO_PASS") ?: "pass";
+$host = getenv("PDO_HOST") ?: "127.0.0.1";
+$db = getenv("PDO_DB") ?: "tpf";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass, array(

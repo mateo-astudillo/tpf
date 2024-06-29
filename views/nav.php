@@ -3,8 +3,7 @@
         fetch("/api/reset", {
             method: "PUT"
         }).then(() => {
-
-            // window.location.reload();
+            window.location.reload();
         })
     }
 </script>

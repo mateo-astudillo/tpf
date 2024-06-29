@@ -1,5 +1,12 @@
 <?php
 
+function age(string $bd): string {
+    $bd = new DateTime($bd);
+    $now = new DateTime();
+    $age = $bd->diff($now);
+    return $age->format("%y");
+}
+
 function get_actor($id) {
     global $pdo;
     $q = "SELECT * FROM actors WHERE id = :id;";
@@ -30,11 +37,15 @@ function insert_actor() {
     $stmt->execute();
 }
 
-function multiple_actors_insert(array $actors) {
+function delete_actors() {
     global $pdo;
     $q_delete = "DELETE FROM actors;";
     $stmt = $pdo->prepare($q_delete);
     $stmt->execute();
+}
+
+function insert_actors(array $actors) {
+    global $pdo;
     $q = "INSERT INTO actors (first_name, last_name, birthdate) VALUES(:fn, :ln, :bd);";
     $stmt = $pdo->prepare($q);
     foreach ($actors as $a) {
