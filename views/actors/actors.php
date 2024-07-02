@@ -35,7 +35,9 @@
                                 Editar
                             </a>
                         </button>
-                        <button class="rounded px-4 py-2 hover:bg-red-400 hover:text-black" onclick=<?php echo "remove_actor(" . $a["id"] . ")" ?>>Eliminar</button>
+                        <button class="rounded px-4 py-2 hover:bg-red-400 hover:text-black" onclick=<?php echo "remove_actor(" . $a["id"] . ")" ?>>
+                            Eliminar
+                        </button>
                 </td>
             </tr>
         <?php endforeach; ?>

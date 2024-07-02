@@ -14,7 +14,7 @@ function reset_db() {
         array_push($actors, array( 
             "last_name"=>strtoupper(trim($a[0])),
             "first_name"=>strtoupper(trim($a[1])),
-            "birthdate"=>strtoupper(trim($a[2]))
+            "birthdate"=>trim($a[2])
         ));
     }
     while (!feof($movie_file)) {
@@ -22,7 +22,7 @@ function reset_db() {
         if (sizeof($m) != 3) continue;
         array_push($movies, array(
             "name"=>strtoupper(trim($m[0])),
-            "release_year"=>strtoupper(trim($m[1])),
+            "release_year"=>trim($m[1]),
             "genre"=>strtoupper(trim($m[2]))
         ));
     }
