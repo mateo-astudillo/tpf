@@ -7,6 +7,16 @@ function delete_aims() {
     $stmt->execute();
 }
 
+function get_character($movie_id, $actor_id) {
+    global $pdo;
+    $q = "SELECT `character` FROM `actors_in_movies` WHERE `movie_id` = :mi AND `actor_id` = :ai;";
+    $stmt = $pdo->prepare($q);
+    $stmt->bindParam(":mi", $movie_id, PDO::PARAM_INT);
+    $stmt->bindParam(":ai", $actor_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 function insert_actors_in_movies($actor_id, $movie_id, $character) {
     global $pdo;
     $q = "INSERT INTO `actors_in_movies` (`actor_id`, `movie_id`, `character`) VALUES (:ai, :mi, :ch);";
@@ -50,11 +60,11 @@ function get_movies_by_actor($actor_id): array {
 
 function get_actors_by_movie($movie_id): array {
     global $pdo;
-    $q = "SELECT * FROM `actor` WHERE `id` = :ai;";
+    $q = "SELECT * FROM `actors` WHERE `id` = :ai;";
     $stmt = $pdo->prepare($q);
     $actors = [];
     foreach (get_actor_ids_by_movie($movie_id) as $a) {
-        $stmt->bindParam(":mi", $a["actor_id"], PDO::PARAM_INT);
+        $stmt->bindParam(":ai", $a["actor_id"], PDO::PARAM_INT);
         $stmt->execute();
         array_push($actors, $stmt->fetch(PDO::FETCH_ASSOC));
     }

@@ -26,17 +26,17 @@
                 <td class="py-4 px-6 w-1/5"><?php echo $m["release_year"] ?></td>
                 <td class="py-4 px-6 w-1/5 capitalize"><?php echo strtolower($m["genre"]) ?></td>
                 <td class="py-4 px-6 w-1/5 hover:text-gray-900">
-                    <a href=<?php echo "/movies/" . $m["id"] . "/actors" ?>>
+                    <a class="px-2 py-2 rounded hover:underline hover:text-black" href=<?php echo "/movies/" . $m["id"] . "/actors" ?>>
                         <?php echo get_number_of_actors_by_movie($m["id"])["actors"]; ?>
                     </a>
                 </td>
                 <td class="flex justify-around py-4 px-6 w-1/5">
-                        <button>
-                            <a class="hover:text-gray-900" href=<?php echo "/movies/edit/". $m["id"] ?>>
+                        <button class="rounded px-4 py-2 hover:bg-green-400 hover:text-black">
+                            <a href=<?php echo "/movies/edit/". $m["id"] ?>>
                                 Editar
                             </a>
                         </button>
-                        <button class="hover:text-gray-900" onclick=<?php echo "remove_movie(" . $m["id"] . ")" ?>>Eliminar</button>
+                        <button class="rounded px-4 py-2 hover:bg-red-400 hover:text-black" onclick=<?php echo "remove_movie(" . $m["id"] . ")" ?>>Eliminar</button>
                 </td>
             </tr>
         <?php endforeach; ?>

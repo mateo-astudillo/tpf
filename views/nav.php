@@ -3,7 +3,7 @@
         fetch("/api/reset", {
             method: "PUT"
         }).then(() => {
-            window.location.reload();
+            location.replace("/")
         })
     }
 </script>

@@ -25,17 +25,17 @@
                 <td class="py-4 px-6 w-1/4 capitalize"><?php echo strtolower($a["first_name"] . " " . $a["last_name"]) ?></td>
                 <td class="py-4 px-6 w-1/4"><?php echo age($a["birthdate"]) ?></td>
                 <td class="py-4 px-6 w-1/4">
-                    <a href=<?php echo "/actors/" . $a["id"] . "/movies" ?>>
+                    <a class="px-2 py-2 rounded hover:underline hover:text-black" href=<?php echo "/actors/" . $a["id"] . "/movies" ?>>
                         <?php echo get_number_of_movies_by_actor($a["id"])["movies"]; ?>
                     </a>
                 </td>
                 <td class="flex justify-around py-4 px-6 w-1/4">
-                        <button>
+                        <button class="rounded px-4 py-2 hover:bg-green-400 hover:text-black">
                             <a href=<?php echo "/actors/edit/". $a["id"] ?>>
                                 Editar
                             </a>
                         </button>
-                        <button onclick=<?php echo "remove_actor(" . $a["id"] . ")" ?>>Eliminar</button>
+                        <button class="rounded px-4 py-2 hover:bg-red-400 hover:text-black" onclick=<?php echo "remove_actor(" . $a["id"] . ")" ?>>Eliminar</button>
                 </td>
             </tr>
         <?php endforeach; ?>

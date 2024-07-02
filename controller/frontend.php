@@ -2,7 +2,7 @@
 switch($page) {
     case "":
     case "home":
-        include "views/home.php";
+        include "views/actors/actors.php";
         break;
     case "files":
         include "views/files.php";
@@ -23,12 +23,13 @@ switch($page) {
                 include "views/actors/edit_actor.php";
                 break;
             default:
-                echo $p;
+                $id = $p;
+                include "views/actor_in_movies/actors.php";
                 break;
         }
         break;
     case "movies":
-        switch (array_shift($r)) {
+        switch ($p = array_shift($r)) {
             case "":
                 include "views/movies/movies.php";
                 break;
@@ -40,7 +41,8 @@ switch($page) {
                 include "views/movies/edit_movie.php";
                 break;
             default:
-                echo $p;
+                $id = $p;
+                include "views/actor_in_movies/movies.php";
                 break;
         }
         break;
