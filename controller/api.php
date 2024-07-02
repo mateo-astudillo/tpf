@@ -4,9 +4,39 @@ switch (array_shift($r)) {
         reset_db();
         break;
     case "files":
-        echo "HELLO";
-        if (isset($_POST["actor_file"])) {
-            echo "archivo";
+        if (isset($_FILES["actors_file"])) {
+            $actors_file = $_FILES["actors_file"];
+            $af = fopen($actors_file["tmp_name"], "r");
+            $actors = [];
+            while (!feof($af)) {
+                $a = explode(",", fgets($af));
+                if (sizeof($a) != 3) continue;
+                array_push($actors, array( 
+                    "last_name"=>strtoupper(trim($a[0])),
+                    "first_name"=>strtoupper(trim($a[1])),
+                    "birthdate"=>strtoupper(trim($a[2]))
+                ));
+            }
+            insert_actors($actors);
+            fclose($af);
+            header('Location: /actors');
+        }
+        if (isset($_FILES["movies_file"])) {
+            $movies_file = $_FILES["movies_file"];
+            $mf = fopen($movies_file["tmp_name"], "r");
+            $movies = [];
+            while (!feof($mf)) {
+                $m = explode(",", fgets($mf));
+                if (sizeof($m) != 3) continue;
+                array_push($movies, array(
+                    "name"=>strtoupper(trim($m[0])),
+                    "release_year"=>strtoupper(trim($m[1])),
+                    "genre"=>strtoupper(trim($m[2]))
+                ));
+            }
+            insert_movies($movies);
+            fclose($mf);
+            header('Location: /movies');
         }
         break;
     case "actors":
