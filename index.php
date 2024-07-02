@@ -2,6 +2,7 @@
 include "model/connection.php";
 include "model/actors.php";
 include "model/movies.php";
+include "model/actors_in_movies.php";
 include "model/reset.php";
 $request_uri = $_SERVER["REQUEST_URI"];
 $end = strpos($request_uri, "?") ?: strlen($request_uri);

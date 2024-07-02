@@ -14,6 +14,6 @@
         <a href="/movies" class="rounded px-4 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Películas</a>
         <a href="/insert" class="rounded px-4 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Insertar</a>
         <a href="/files" class="rounded px-4 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Archivos</a>
-        <button onclick="reset()" class="rounded px-4 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Restaurar datos</button>
+        <button onclick="reset()" class="rounded px-4 py-2 font-medium text-gray-300 hover:bg-red-400 hover:text-black">Restaurar datos</button>
     </nav>
 </header>

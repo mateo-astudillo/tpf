@@ -22,21 +22,21 @@
     <tbody>
         <?php foreach (get_all_movies() as $m): ; ?>
             <tr class="flex justify-around text-center border">
-                <td class="py-4 px-6 w-1/5"><?php echo $m["name"] ?></td>
+                <td class="py-4 px-6 w-1/5 capitalize"><?php echo strtolower($m["name"]) ?></td>
                 <td class="py-4 px-6 w-1/5"><?php echo $m["release_year"] ?></td>
-                <td class="py-4 px-6 w-1/5"><?php echo $m["genre"] ?></td>
-                <td class="py-4 px-6 w-1/5">
+                <td class="py-4 px-6 w-1/5 capitalize"><?php echo strtolower($m["genre"]) ?></td>
+                <td class="py-4 px-6 w-1/5 hover:text-gray-900">
                     <a href=<?php echo "/movies/" . $m["id"] . "/actors" ?>>
-                        <?php echo $m["id"] ?>
+                        <?php echo get_number_of_actors_by_movie($m["id"])["actors"]; ?>
                     </a>
                 </td>
                 <td class="flex justify-around py-4 px-6 w-1/5">
                         <button>
-                            <a href=<?php echo "/movies/edit/". $m["id"] ?>>
+                            <a class="hover:text-gray-900" href=<?php echo "/movies/edit/". $m["id"] ?>>
                                 Editar
                             </a>
                         </button>
-                        <button onclick=<?php echo "remove_movie(" . $m["id"] . ")" ?>>Eliminar</button>
+                        <button class="hover:text-gray-900" onclick=<?php echo "remove_movie(" . $m["id"] . ")" ?>>Eliminar</button>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -13,14 +13,14 @@ switch($page) {
     case "actors":
         switch ($p = array_shift($r)) {
             case "":
-                include "views/actors.php";
+                include "views/actors/actors.php";
                 break;
             case "insert":
-                include "views/insert_actor.php";
+                include "views/actors/insert_actor.php";
                 break;
             case "edit":
                 $id = array_shift($r);
-                include "views/edit_actor.php";
+                include "views/actors/edit_actor.php";
                 break;
             default:
                 echo $p;
@@ -30,14 +30,14 @@ switch($page) {
     case "movies":
         switch (array_shift($r)) {
             case "":
-                include "views/movies.php";
+                include "views/movies/movies.php";
                 break;
             case "insert":
-                include "views/insert_movie.php";
+                include "views/movies/insert_movie.php";
                 break;
             case "edit":
                 $id = array_shift($r);
-                include "views/edit_movie.php";
+                include "views/movies/edit_movie.php";
                 break;
             default:
                 echo $p;

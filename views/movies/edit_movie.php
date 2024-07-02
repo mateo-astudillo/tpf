@@ -1,11 +1,20 @@
 <?php $movie = get_movie($id); ?>
 <script>
     function update(id) {
+        let movie = {
+            "name": document.getElementById("name").value,
+            "release_year": document.getElementById("release_year").value,
+            "genre": document.getElementById("genre").value
+        };
         fetch(`/api/movies/${id}`, {
-            method: "PATCH"
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(movie)
         }).then(() => {
-            location.replace("/movies")
-        })
+            location.replace("/movies");
+        });
     }
 </script>
 <div class="flex flex-col items-center bg-slate-200 border-2 border-slate-800 rounded">
@@ -22,6 +31,6 @@
         </div>
     </div>
     <div class="flex-item m-2">
-        <button onclick=<?php echo "update(" . $actor["id"] . ")"; ?> class="inline-flex px-5 py-2 bg-emerald-400 rounded hover:bg-emerald-300">Actualizar</button>
+        <button onclick='<?php echo "update(" . $movie["id"] . ")"; ?>' class="inline-flex px-5 py-2 bg-emerald-400 rounded hover:bg-emerald-300">Actualizar</button>
     </div>
 </div>

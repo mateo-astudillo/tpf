@@ -22,11 +22,11 @@
     <tbody>
         <?php foreach (get_all_actors() as $a): ; ?>
             <tr class="flex justify-around text-center border">
-                <td class="py-4 px-6 w-1/4"><?php echo $a["first_name"] . " " . $a["last_name"] ?></td>
+                <td class="py-4 px-6 w-1/4 capitalize"><?php echo strtolower($a["first_name"] . " " . $a["last_name"]) ?></td>
                 <td class="py-4 px-6 w-1/4"><?php echo age($a["birthdate"]) ?></td>
                 <td class="py-4 px-6 w-1/4">
                     <a href=<?php echo "/actors/" . $a["id"] . "/movies" ?>>
-                        <?php echo $a["id"] ?>
+                        <?php echo get_number_of_movies_by_actor($a["id"])["movies"]; ?>
                     </a>
                 </td>
                 <td class="flex justify-around py-4 px-6 w-1/4">

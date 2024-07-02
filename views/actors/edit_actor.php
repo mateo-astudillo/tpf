@@ -1,14 +1,23 @@
 <?php $actor = get_actor($id); ?>
 <script>
     function update(id) {
+        let actor = {
+            "first_name": document.getElementById("first_name").value,
+            "last_name": document.getElementById("last_name").value,
+            "birthdate": document.getElementById("birthdate").value
+        };
         fetch(`/api/actors/${id}`, {
-            method: "PATCH"
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(actor)
         }).then(() => {
-            location.replace("/actors")
-        })
+            location.replace("/actors");
+        });
     }
 </script>
-<div class="flex flex-col items-center bg-slate-200 border-2 border-slate-800 rounded">
+<div class="flex flex-col items-center w-min bg-slate-200 border-2 border-slate-800 rounded">
     <div class="flex flex-row">
         <div class="flex flex-col gap-y-8 p-10">
             <label for="first_name" class="px-10 hover:text-gray-700">Nombre</label>
@@ -22,6 +31,6 @@
         </div>
     </div>
     <div class="flex-item m-2">
-        <button onclick=<?php echo "update(" . $actor["id"] . ")"; ?> class="inline-flex px-5 py-2 bg-emerald-400 rounded hover:bg-emerald-300">Actualizar</button>
+        <button onclick='<?php echo "update(" . $actor["id"] . ")"; ?>' class="inline-flex px-5 py-2 bg-emerald-400 rounded hover:bg-emerald-300">Actualizar</button>
     </div>
 </div>
